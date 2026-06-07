@@ -1,4 +1,4 @@
-# Validador de Transitividad y Modulo extra de Enrutamiento de Redes
+# Validador de Transitividad con Modulo extra de Enrutamiento de Redes
 
 Aplicación de consola desarrollada en Java puro que evalúa si una relación binaria sobre un conjunto cumple con la propiedad transitiva matemática tanto como para conjutos de pares ordenandos y matricez . Además, incluye un módulo aplicado al mundo real para auditar topologías de red y validar enrutamientos de "Malla Completa" (Full Mesh).
 
@@ -152,7 +152,7 @@ El sistema fue diseñado aplicando principios de separación de responsabilidade
 * **Interfaz Gráfica / API:** Evolucionar el núcleo matemático para consumirlo a través de una API RESTful utilizando Spring Boot.
 
 ## Autor
-**Sinue Alvarez**
-* **Rol:** Desarrollador Backend | Estudiante de Ingeniería en Computación
+
+* **Sinue Alvarez Cortez:** Desarrollador Backend | Estudiante de Ingeniería en Computación
 * **GitHub:** [ESPECTRO909](https://github.com/ESPECTRO909)
 * **LinkedIn:** [Sinue Alvarez](https://www.linkedin.com/in/sinue-alvarez)
