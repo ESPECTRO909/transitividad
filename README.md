@@ -113,7 +113,8 @@ Listo, le programa funciona a la perfeccion, puedes probar el siguiente caso de 
 
 ### Ejemplo 3: Validacion de Topologia de Red (Caso de Éxito)
 
-imagen
+![menu](img/menu.png)
+
 
 **1. Selecciona la opcion 3**
 
