@@ -62,7 +62,7 @@ Para el desarrollo del núcleo matemático del programa, se tomó la decisión a
 
 
 
-## 5. Análisis de Complejidad (Notación Big O)
+## 5. Análisis de Complejidad
 
 Para evaluar el rendimiento y la escalabilidad del algoritmo, se realizó el siguiente análisis de complejidad:
 
@@ -71,7 +71,7 @@ Para evaluar el rendimiento y la escalabilidad del algoritmo, se realizó el sig
 
 
 
-## 6. Pruebas de Escritorio (Evidencias de Ejecución)
+## 6. Pruebas de Escritorio
 
 A continuación, se presentan los escenarios de prueba ejecutados para validar la robustez del algoritmo, incluyendo su capacidad para detectar fallos lógicos y su adaptabilidad a entornos de red reales.
 
