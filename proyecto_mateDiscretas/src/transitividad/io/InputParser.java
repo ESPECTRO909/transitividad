@@ -1,6 +1,6 @@
 //clase encargada de manejar la entrada del usuario, ya sea a través de una matriz o de pares ordenados, y convertir esa entrada en una matriz de adyacencia que el programa pueda usar para verificar la transitividad.
 package transitividad.io;
-
+//importamos las clases necesarias para manejar la entrada del usuario y trabajar con expresiones regulares
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,17 +16,17 @@ public class InputParser {
         for (int i = 0; i < n; i++) {
             while (true) {
                 System.out.print("Fila " + i + ": ");
-                String[] valores = scanner.nextLine().trim().split("\\s+");
+                String[] valores = scanner.nextLine().trim().split("\\s+");// Separa por espacios, ignorando múltiples espacios seguidos
                 
-                if (valores.length == n) {
+                if (valores.length == n) {// Validamos que el usuario haya ingresado exactamente n valores
                     try {
                         for (int j = 0; j < n; j++) {
                             int val = Integer.parseInt(valores[j]);
-                            if (val != 0 && val != 1) throw new NumberFormatException();
-                            matriz[i][j] = val;
+                            if (val != 0 && val != 1) throw new NumberFormatException();// Validamos que el valor sea 0 o 1
+                            matriz[i][j] = val;// Si el valor es correcto, lo asignamos a la matriz
                         }
                         break; // Si la fila es correcta, rompemos el while para pasar a la siguiente
-                    } catch (NumberFormatException e) {
+                    } catch (NumberFormatException e) {// Si el usuario ingresó un valor no numérico o un número diferente de 0 o 1, mostramos un error y pedimos la fila nuevamente
                         System.out.println("error: La matriz solo puede contener números 0 o 1.");
                     }
                 } else {
@@ -47,8 +47,8 @@ public class InputParser {
         System.out.print("Pares: ");
         String input = scanner.nextLine();
 
-        // Magia negra (Expresiones Regulares) para extraer solo los números de los paréntesis
         //Matcher y Pattern son clases de Java que nos permiten trabajar con expresiones regulares, aprueba de espacios y formatos variados.
+        //para extraer solo los números de los paréntesis
         Pattern pattern = Pattern.compile("\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*\\)");
         Matcher matcher = pattern.matcher(input);
 
@@ -64,6 +64,6 @@ public class InputParser {
                 System.out.println("Advertencia: El par (" + origen + "," + destino + ") fue ignorado porque está fuera del límite.");
             }
         }
-        return matriz;
+        return matriz;// De esta forma, el usuario puede ingresar los pares ordenados de manera flexible, y el programa se encargará de construir la matriz de adyacencia correspondiente.
     }
 }

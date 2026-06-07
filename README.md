@@ -51,7 +51,7 @@ En este apartado no mostrare las pruebas realizadas (consultar el reporte.md), p
 
 Al iniciar la aplicación, se mostrará un menú interactivo.
 
-imagen
+![menu](img/menu.png)
 
 ### Ejemplo 1: Validación Matemática (Pares Ordenados)
 Para probar la precisión del algoritmo matemático, seleccionaremos la **Opción 2**. Intentaremos engañar al programa dándole un camino incompleto para ver cómo detecta la falla.
@@ -113,7 +113,6 @@ Listo, le programa funciona a la perfeccion, puedes probar el siguiente caso de 
 
 ### Ejemplo 3: Validacion de Topologia de Red (Caso de Éxito)
 
-![menu](img/menu.png)
 
 
 **1. Selecciona la opcion 3**

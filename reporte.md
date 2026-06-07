@@ -215,9 +215,8 @@ Para garantizar la escalabilidad, el mantenimiento y la correcta separación de 
 
 ![main](img/main.png)
 
-## 8. Conclusiones y Trabajo Futuro
+## 8. Conclusiones
 
-### Conclusiones
 El desarrollo de este verificador de transitividad demostró que la validación de propiedades en matemáticas discretas puede optimizarse significativamente mediante el uso de matrices de adyacencia. Al implementar un algoritmo con complejidad temporal **O(n^3)** estructurado bajo un riguroso diseño de arquitectura por capas (`core`, `model`, `io`), se logró un sistema no solo matemáticamente preciso, sino también altamente escalable. 
 
 La capacidad de abstraer el problema, permitiendo que el mismo motor lógico evalúe tanto conjuntos numéricos puros como topologías de redes complejas, confirma la eficacia del principio de separación de responsabilidades. Además, la implementación de validaciones en la capa de entradaysalida garantiza la estabilidad del programa frente a datos erroneos o incompletos, entregando un software robusto y tolerante a fallos.

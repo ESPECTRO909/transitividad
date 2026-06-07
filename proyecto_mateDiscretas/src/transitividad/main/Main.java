@@ -9,6 +9,7 @@ import transitividad.model.Topologia;
 
 import java.util.Scanner;
 
+// Clase principal que maneja la interacción con el usuario y coordina las diferentes partes del programa
 public class Main {
 
     public static void main(String[] args) {
@@ -50,9 +51,9 @@ public class Main {
                     continue; // Vuelve a mostrar el menú
             }
 
-            // Si la matriz se creó correctamente (en cualquiera de las 3 opciones), hacemos la evaluación matemática
+            // Si la matriz se creó correctamente, hacemos la evaluación matemática
             if (matriz != null) {
-                Resultado resultado = Verificador.evaluarTransitividad(matriz);
+                Resultado resultado = Verificador.evaluarTransitividad(matriz);// Evaluamos la transitividad y obtenemos el resultado detallado
 
                 System.out.println("\n----------------- RESULTADO -----------------");
                 
@@ -67,7 +68,7 @@ public class Main {
                     // Caso de fallo
                     System.out.println("La relación NO es transitiva.");
                     
-                    // Si viene de la Opción 3 (Redes), traducimos los IDs de vuelta a nombres de texto
+                    // Si viene de la Opción 3, traducimos los ids de vuelta a nombres de texto
                     if (topologia != null) {
                         String nodoA = topologia.getNombreNodo(resultado.getNodoA());
                         String nodoB = topologia.getNombreNodo(resultado.getNodoB());
@@ -76,7 +77,7 @@ public class Main {
                         System.out.println("   -> Falta enlace directo: Existen rutas (" + nodoA + " -> " + nodoB + ") " +
                                 "y (" + nodoB + " -> " + nodoC + "), pero falta (" + nodoA + " -> " + nodoC + ").");
                     } else {
-                        // Si viene de la Opción 1 o 2 (Matemáticas puro), imprimimos los números directamente
+                        // Si viene de la Opción 1 o 2, imprimimos los números directamente
                         System.out.println("   -> Contraejemplo: Existen los pares (" + resultado.getNodoA() + ", " + resultado.getNodoB() + ") " +
                                 "y (" + resultado.getNodoB() + ", " + resultado.getNodoC() + "), " +
                                 "pero falta el par (" + resultado.getNodoA() + ", " + resultado.getNodoC() + ").");
@@ -86,6 +87,6 @@ public class Main {
             }
         }
         
-        scanner.close();
+        scanner.close();// Cerramos el scanner al finalizar el programa
     }
 }
