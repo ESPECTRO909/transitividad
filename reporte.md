@@ -1,4 +1,8 @@
 # Universidad Michoacana de San Nicolás de Hidalgo
+
+![portada](img/trans.jpg)
+
+
 ### Programa de la carrera en Ingeneria en Computacion
 
 * **Materia:** Matemáticas Discretas
