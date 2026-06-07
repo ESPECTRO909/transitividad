@@ -61,7 +61,7 @@ public class InputParser {
             if (origen >= 0 && origen < n && destino >= 0 && destino < n) {
                 matriz[origen][destino] = 1; // Trazamos el puente en la matriz
             } else {
-                System.out.println("⚠️ Advertencia: El par (" + origen + "," + destino + ") fue ignorado porque está fuera del límite.");
+                System.out.println("Advertencia: El par (" + origen + "," + destino + ") fue ignorado porque está fuera del límite.");
             }
         }
         return matriz;

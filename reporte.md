@@ -151,6 +151,39 @@ graph TD
     %% Relaciones desde el nodo 5
     5 -->|5,5| 5
 ```
+```mermaid
+graph TD
+    %% Nodos
+    0((0))
+    1((1))
+    2((2))
+    3((3))
+    4((4))
+    5((5))
+
+    %% Relaciones desde el nodo 0
+    0 -->|0,0| 0
+    0 --> 1 & 2 & 3 & 4 & 5
+
+    %% Relaciones desde el nodo 1
+    1 -->|1,1| 1
+    1 --> 2 & 3 & 4 & 5
+
+    %% Relaciones desde el nodo 2
+    2 -->|2,2| 2
+    2 --> 3 & 4 & 5
+
+    %% Relaciones desde el nodo 3
+    3 -->|3,3| 3
+    3 --> 4 & 5
+
+    %% Relaciones desde el nodo 4
+    4 -->|4,4| 4
+    4 --> 5
+
+    %% Relaciones desde el nodo 5
+    5 -->|5,5| 5
+```
 
 * **Comportamiento del Código:** El motor recorre la matriz de adyacencia y, al no encontrar ninguna violación a la regla matemática durante sus iteraciones, retorna un resultado positivo:
 
@@ -172,8 +205,6 @@ Nota: no es necesario poner el tamaño del conjuto dado que se implento una mejo
 
 * **Comportamiento del Código:** Para lograr esto, el módulo de red utiliza un HashMap que traduce dinámicamente los strings a índices numéricos antes de pasarlos al motor matemático:
 
-* // [Sinue: Pega aquí el fragmento de tu NetworkParser.java (o la clase de I/O) donde usas el HashMap (put / get) para asignar un número a cada Router/Switch]
-
 ![codigo_1](img/codigo_1.png)
 
 ![codigo_2](img/codigo_2.png)
@@ -182,14 +213,21 @@ Nota: no es necesario poner el tamaño del conjuto dado que se implento una mejo
 * **Evidencia de Ejecución:**
 El sistema procesa los caracteres de texto, traduce la topología y confirma el enrutamiento exitoso:
 
+![prueba](img/prueba_4.png)
+
+
 ### Prueba 5: Validación de Entradas y Manejo de Errores
 * **Objetivo:** Demostrar la robustez de la capa de entrada/salida (`io`), asegurando que el sistema no colapse ante datos malformados, sino que intercepte el error y lo maneje de forma controlada.
-* **Entrada proporcionada:** Ingreso de caracteres alfabéticos o sintaxis incompleta (ej. `(1,A)` o letras cuando se espera el tamaño de la matriz).
+* **Entrada proporcionada:** Ingreso de caracteres alfabéticos o sintaxis incompleta (ejemplo. `(1,A)`).
 * **Comportamiento del Código:** La capa de lectura implementa validaciones o bloques `try-catch` para capturar excepciones como `InputMismatchException` o `NumberFormatException`. Al detectar un formato inválido, el sistema rechaza la entrada y solicita los datos nuevamente o muestra un mensaje de error amigable, protegiendo a la capa `core` de procesar "basura":
 
-```java
-// [Sinue: Pega aquí el bloque de tu código (seguramente en tu capa io o en tu Main) donde usas un try-catch, un if con expresiones regulares, o donde validas que el usuario no meta letras en lugar de números]
-```
+![codigo_3](img/codigo_3.png)
+
+* **Evidencia de Ejecución:**
+
+![prueba](img/prueba_5.png)
+
+
 
 
 ## 7. Arquitectura de Directorios
