@@ -27,7 +27,7 @@ public class Main {
             System.out.println("3. Extra: Validar Topología de Red (Texto)");
             System.out.println("4. Salir");
 
-            int opcion = Validaciones.leerEntero(scanner, "Opción: ");
+            int opcion = Validaciones.leerEntero(scanner, "Opción: ");// Validamos que el usuario ingrese un número entero para la opción
             int[][] matriz = null;
             Topologia topologia = null; // Guardará el diccionario si elegimos la opción de red
 
@@ -43,7 +43,7 @@ public class Main {
                     matriz = topologia.getMatriz(); // Extraemos la matriz numérica para el algoritmo central
                     break;
                 case 4:
-                    System.out.println("¡Hasta luego!");
+                    System.out.println("saliendo..");
                     continuar = false;
                     continue; // Salta al final del ciclo y termina
                 default:
@@ -70,7 +70,7 @@ public class Main {
                     
                     // Si viene de la Opción 3, traducimos los ids de vuelta a nombres de texto
                     if (topologia != null) {
-                        String nodoA = topologia.getNombreNodo(resultado.getNodoA());
+                        String nodoA = topologia.getNombreNodo(resultado.getNodoA());// Traducimos los ids numéricos a nombres de nodos usando el diccionario de la topología
                         String nodoB = topologia.getNombreNodo(resultado.getNodoB());
                         String nodoC = topologia.getNombreNodo(resultado.getNodoC());
                         

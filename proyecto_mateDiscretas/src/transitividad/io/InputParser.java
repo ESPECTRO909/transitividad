@@ -21,7 +21,7 @@ public class InputParser {
                 if (valores.length == n) {// Validamos que el usuario haya ingresado exactamente n valores
                     try {
                         for (int j = 0; j < n; j++) {
-                            int val = Integer.parseInt(valores[j]);
+                            int val = Integer.parseInt(valores[j]);// Intentamos convertir el valor a entero
                             if (val != 0 && val != 1) throw new NumberFormatException();// Validamos que el valor sea 0 o 1
                             matriz[i][j] = val;// Si el valor es correcto, lo asignamos a la matriz
                         }
@@ -39,7 +39,7 @@ public class InputParser {
 
     // segunda opcion: Leer desde pares ordenados
     public static int[][] leerPares(Scanner scanner) {
-        int n = Validaciones.leerEntero(scanner, "¿Cuántos elementos tiene el conjunto? (Ej. para {0,1,2} ingresa 3): ");
+        int n = Validaciones.leerEntero(scanner, "¿Cuántos elementos tiene el conjunto (Ejemplo. para un conjuto s = {0,1,2} ingresa 3): ");
         int[][] matriz = new int[n][n]; // Se inicializa en 0 por defecto
 
         System.out.println("Ingresa los pares ordenados. Ejemplo: (0,1), (1,2), (0,2)");
