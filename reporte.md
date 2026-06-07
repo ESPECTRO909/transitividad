@@ -1,6 +1,6 @@
 # Universidad Michoacana de San Nicolás de Hidalgo
 
-![portada](img/trans.jpg)
+![portada](img/UMSNH_menu_bar_logo.png)
 
 
 ### Programa de la carrera en Ingeneria en Computacion
@@ -25,6 +25,7 @@ El desarrollo de esta herramienta fue guiado por dos instrucciones principales: 
 **Justificación de las Estructuras de Datos:**
 A nivel técnico, se tomó la decisión arquitectónica de normalizar cualquier formato de entrada (ya sean pares ordenados o cadenas de texto) y convertirlo en una **Matriz de Adyacencia** bidimensional. La razón detrás de esta elección es la optimización del rendimiento. Si el programa operara evaluando listas dinámicas de pares, el tiempo de búsqueda para confirmar la existencia de un "puente" matemático sería costoso. En cambio, al utilizar una matriz, la validación de una conexión entre un nodo **i** y un nodo **j** se realiza mediante un acceso directo a la memoria con un tiempo constante de O(1).
 
+
 **Motivación del Módulo de Redes:**
 En lo personal, consideré vital no limitar este proyecto a la pura abstracción teórica. El módulo extra de auditoría de redes nace de mi necesidad de relacionar los temas vistos en la materia con casos de uso del mundo real.
 
@@ -45,6 +46,8 @@ Para todo a, b, c en A, si (a, b) en R y (b, c) en R -> (a, c) en R
 ```
 
 El sistema traduce esta regla abstracta iterando sobre la matriz de adyacencia. Si detecta el "camino de ida" y el "camino de continuación", exige obligatoriamente la existencia del "atajo" directo. Además, contempla las reglas de reflexividad inducida (Loopbacks), exigiendo la conexión **(a, a)** si detecta viajes de ida y vuelta entre dos nodos.
+
+![portada](img/trans.jpg)
 
 Tome en cuenta para el caso que no haya promesa y implique una prueba de vacuidad, si una relación no contiene ningún par ordenado (es un conjunto vacío), no tiene elementos que evaluar, como la condición de buscar pares (a, b) y (b, c) es imposible de cumplir, el antecedente siempre es falso, por lo tanto, la relación vacía siempre es transitiva por vacuidad en cualquier conjunto.
 
@@ -84,7 +87,8 @@ if (matriz[i][k] == 0) {
 ```
 * **Evidencia de Ejecución:**
 Como se observa en la siguiente captura, el programa procesa la entrada y devuelve el error esperado:
-![Evidencia Prueba 1 - Contraejemplo]([Sinue: Pon aquí la ruta de tu captura de pantalla de la terminal fallando])
+
+![prueba](img/prueba_1.jpg)
 
 
 ### Prueba 2: Validación Exitosa de Transitividad
@@ -98,13 +102,15 @@ Como se observa en la siguiente captura, el programa procesa la entrada y devuel
 return new Resultado(true);
 ```
 * **Evidencia de Ejecución:**
-![Evidencia Prueba 2 - Éxito]([Sinue: Pon aquí la ruta de tu captura de pantalla de la terminal con el check verde de éxito])
+
+![prueba](img/prueba_2.jpg)
+
 
 
 ### Prueba 3: Validación Exitosa de Transitividad compleja
 * **Objetivo:** Comprobar que un conjunto mas grande cumple estrictamente con las reglas de transitividad y loopbacks es aprobado por el sistema.
 
-* **Entrada proporcionada:** **(0,1), (1,2), (0,2)** (Tamaño del conjunto: 3)
+* **Entrada proporcionada:** **(0,0), (0,1), (0,2), (0,3), (0,4), (0,5), (1,1), (1,2), (1,3), (1,4), (1,5), (2,2), (2,3), (2,4), (2,5), (3,3), (3,4), (3,5), (4,4), (4,5), (5,5)** (Tamaño del conjunto: 6)
 
 * **Representacion grafica:**
 
@@ -116,13 +122,54 @@ return new Resultado(true);
 return new Resultado(true);
 ```
 * **Evidencia de Ejecución:**
-![Evidencia Prueba 2 - Éxito]([Sinue: Pon aquí la ruta de tu captura de pantalla de la terminal con el check verde de éxito])
+
+![prueba](img/prueba_3.jpg)
+
 
 
 ### Prueba 4: Auditoría de Redes (Malla Completa)
 * **Objetivo:** Evidenciar la flexibilidad de las estructuras de datos al procesar cadenas de texto (nombres de dispositivos) en lugar de números, validando una topología de red real.
 
-* **Entrada proporcionada:** (RouterA, RouterB), (RouterB, SwitchCore), (RouterA, SwitchCore)
+* **Entrada proporcionada:** (pc1, pc2), (pc2, router), (pc1, router)
+Nota: no es necesario poner el tamaño del conjuto dado que se implento una mejora al ux
+
+```mermaid
+graph TD
+    %% Nodos
+    0((0))
+    1((1))
+    2((2))
+    3((3))
+    4((4))
+    5((5))
+
+    %% Resaltar los nodos donde ocurre la falla lógica (falta el puente 1->5)
+    style 1 stroke:#f00,stroke-width:3px
+    style 5 stroke:#f00,stroke-width:3px
+
+    %% Relaciones desde el nodo 0
+    0 -->|0,0| 0
+    0 --> 1 & 2 & 3 & 4 & 5
+
+    %% Relaciones desde el nodo 1 (OJO: Falta la conexión al 5)
+    1 -->|1,1| 1
+    1 --> 2 & 3 & 4
+
+    %% Relaciones desde el nodo 2
+    2 -->|2,2| 2
+    2 --> 3 & 4 & 5
+
+    %% Relaciones desde el nodo 3
+    3 -->|3,3| 3
+    3 --> 4 & 5
+
+    %% Relaciones desde el nodo 4
+    4 -->|4,4| 4
+    4 --> 5
+
+    %% Relaciones desde el nodo 5
+    5 -->|5,5| 5
+```
 
 * **Comportamiento del Código:** Para lograr esto, el módulo de red utiliza un HashMap que traduce dinámicamente los strings a índices numéricos antes de pasarlos al motor matemático:
 
