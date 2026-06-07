@@ -88,7 +88,7 @@ if (matriz[i][k] == 0) {
 * **Evidencia de Ejecución:**
 Como se observa en la siguiente captura, el programa procesa la entrada y devuelve el error esperado:
 
-![prueba](img/prueba_1.jpg)
+![prueba](img/prueba_1.png)
 
 
 ### Prueba 2: Validación Exitosa de Transitividad
@@ -103,7 +103,7 @@ return new Resultado(true);
 ```
 * **Evidencia de Ejecución:**
 
-![prueba](img/prueba_2.jpg)
+![prueba](img/prueba_2.png)
 
 
 
@@ -113,25 +113,6 @@ return new Resultado(true);
 * **Entrada proporcionada:** **(0,0), (0,1), (0,2), (0,3), (0,4), (0,5), (1,1), (1,2), (1,3), (1,4), (1,5), (2,2), (2,3), (2,4), (2,5), (3,3), (3,4), (3,5), (4,4), (4,5), (5,5)** (Tamaño del conjunto: 6)
 
 * **Representacion grafica:**
-
-  imagen del conjunto
-
-* **Comportamiento del Código:** El motor recorre la matriz de adyacencia y, al no encontrar ninguna violación a la regla matemática durante sus iteraciones, retorna un resultado positivo:
-
-```java
-return new Resultado(true);
-```
-* **Evidencia de Ejecución:**
-
-![prueba](img/prueba_3.jpg)
-
-
-
-### Prueba 4: Auditoría de Redes (Malla Completa)
-* **Objetivo:** Evidenciar la flexibilidad de las estructuras de datos al procesar cadenas de texto (nombres de dispositivos) en lugar de números, validando una topología de red real.
-
-* **Entrada proporcionada:** (pc1, pc2), (pc2, router), (pc1, router)
-Nota: no es necesario poner el tamaño del conjuto dado que se implento una mejora al ux
 
 ```mermaid
 graph TD
@@ -171,9 +152,32 @@ graph TD
     5 -->|5,5| 5
 ```
 
+* **Comportamiento del Código:** El motor recorre la matriz de adyacencia y, al no encontrar ninguna violación a la regla matemática durante sus iteraciones, retorna un resultado positivo:
+
+```java
+return new Resultado(true);
+```
+* **Evidencia de Ejecución:**
+
+![prueba](img/prueba_3.png)
+
+
+
+### Prueba 4: Auditoría de Redes (Malla Completa)
+* **Objetivo:** Evidenciar la flexibilidad de las estructuras de datos al procesar cadenas de texto (nombres de dispositivos) en lugar de números, validando una topología de red real.
+
+* **Entrada proporcionada:** (pc1, pc2), (pc2, router), (pc1, router)
+Nota: no es necesario poner el tamaño del conjuto dado que se implento una mejora al ux
+
+
 * **Comportamiento del Código:** Para lograr esto, el módulo de red utiliza un HashMap que traduce dinámicamente los strings a índices numéricos antes de pasarlos al motor matemático:
 
 * // [Sinue: Pega aquí el fragmento de tu NetworkParser.java (o la clase de I/O) donde usas el HashMap (put / get) para asignar un número a cada Router/Switch]
+
+![codigo_1](img/codigo_1.png)
+
+![codigo_2](img/codigo_2.png)
+
 
 * **Evidencia de Ejecución:**
 El sistema procesa los caracteres de texto, traduce la topología y confirma el enrutamiento exitoso:
