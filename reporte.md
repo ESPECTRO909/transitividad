@@ -26,6 +26,8 @@ En lo personal, consideré vital no limitar este proyecto a la pura abstracción
 
 En telecomunicaciones y arquitectura de redes, el concepto de un enrutamiento de "Malla Completa" (Full Mesh) es la representación física de la propiedad transitiva: si el *Router A* se comunica con el *Router B*, y el *Router B* se comunica con el *Switch C*, la red solo será óptima si existe un canal directo desde el *Router A* hasta el *Switch C*, incluyendo además las interfaces lógicas de retroalimentación (Loopbacks). Este módulo demuestra que la matemática discreta es el núcleo fundamental del diseño de infraestructuras tecnológicas.
 
+!                                  [Full-Mesh-Topology](img/Full-Mesh-Topology.png)
+
 Como parte del trabajo futuro y con el objetivo de consolidar mi crecimiento profesional en el desarrollo backend, se proyecta la evolución de este sistema hacia una arquitectura distribuida. Para las siguientes versiones se implementará la persistencia de datos utilizando una base de datos NoSQL. En paralelo, el motor de evaluación matemática se expondrá a través de una API RESTful, lo que permitirá enviar conjuntos de datos de forma remota y recibir resultados estandarizados, facilitando así su futura integración con interfaces gráficas.
 
 
