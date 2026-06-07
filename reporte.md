@@ -141,3 +141,14 @@ Para garantizar la escalabilidad, el mantenimiento y la correcta separación de 
 
 ![foto](img/foto.png)
 
+* **core/ (Núcleo de la Lógica):** Contiene la matemática pura. La clase Verificador opera de manera completamente agnóstica; su única responsabilidad es aplicar la teoría de grafos y relaciones discretas sobre las matrices proporcionadas, no conoce nada de tipos de uso, solo recibe los datos y los procesa independiente del uso que se le de.
+![core](img/core.png)
+
+* **model/ (Estructuras de Datos):** Define los objetos que transitan entre las diferentes capas de la aplicación. Encapsula las respuestas (como el objeto Resultado) para mantener un flujo de información estandarizado y seguro, asi como la persistencia de datos para en futuras versiones.
+![model](img/model.png)
+
+* **io/ (Input/Output):** Funciona como una capa de adaptación altamente extensible. Su diseño modular garantiza que el sistema pueda escalar fácilmente para recibir cualquier flujo de datos externos en el futuro —como lectura de archivos masivos, recepción de cargas JSON a través de la API RESTful proyectada, o eventos de una interfaz gráfica (GUI)— sin alterar una sola línea de código del motor matemático. Actualmente, se encarga de interceptar las entradas del usuario por consola, validar su integridad y estandarizarlas en estructuras que la capa `core` pueda procesar con seguridad.
+![io](img/io.png)
+
+* **main/:** Punto de arranque de la aplicación que inicializa e instancia las dependencias necesarias de las otras capas.
+![main](img/main.png)
