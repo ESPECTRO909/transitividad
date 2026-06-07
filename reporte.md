@@ -124,43 +124,6 @@ graph TD
     4((4))
     5((5))
 
-    %% Resaltar los nodos donde ocurre la falla lógica (falta el puente 1->5)
-    style 1 stroke:#f00,stroke-width:3px
-    style 5 stroke:#f00,stroke-width:3px
-
-    %% Relaciones desde el nodo 0
-    0 -->|0,0| 0
-    0 --> 1 & 2 & 3 & 4 & 5
-
-    %% Relaciones desde el nodo 1 (OJO: Falta la conexión al 5)
-    1 -->|1,1| 1
-    1 --> 2 & 3 & 4
-
-    %% Relaciones desde el nodo 2
-    2 -->|2,2| 2
-    2 --> 3 & 4 & 5
-
-    %% Relaciones desde el nodo 3
-    3 -->|3,3| 3
-    3 --> 4 & 5
-
-    %% Relaciones desde el nodo 4
-    4 -->|4,4| 4
-    4 --> 5
-
-    %% Relaciones desde el nodo 5
-    5 -->|5,5| 5
-```
-```mermaid
-graph TD
-    %% Nodos
-    0((0))
-    1((1))
-    2((2))
-    3((3))
-    4((4))
-    5((5))
-
     %% Relaciones desde el nodo 0
     0 -->|0,0| 0
     0 --> 1 & 2 & 3 & 4 & 5
@@ -251,3 +214,10 @@ Para garantizar la escalabilidad, el mantenimiento y la correcta separación de 
 * **main/:** Punto de arranque de la aplicación que inicializa e instancia las dependencias necesarias de las otras capas.
 
 ![main](img/main.png)
+
+## 8. Conclusiones y Trabajo Futuro
+
+### Conclusiones
+El desarrollo de este verificador de transitividad demostró que la validación de propiedades en matemáticas discretas puede optimizarse significativamente mediante el uso de matrices de adyacencia. Al implementar un algoritmo con complejidad temporal **O(n^3)** estructurado bajo un riguroso diseño de arquitectura por capas (`core`, `model`, `io`), se logró un sistema no solo matemáticamente preciso, sino también altamente escalable. 
+
+La capacidad de abstraer el problema, permitiendo que el mismo motor lógico evalúe tanto conjuntos numéricos puros como topologías de redes complejas, confirma la eficacia del principio de separación de responsabilidades. Además, la implementación de validaciones en la capa de entradaysalida garantiza la estabilidad del programa frente a datos erroneos o incompletos, entregando un software robusto y tolerante a fallos.
